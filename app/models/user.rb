@@ -3,6 +3,10 @@ class User < ApplicationRecord
 	has_many :comments
 	has_many :pictures, through: :comments
 
+	# has_many :picture_tags, through: :owned_pictures
+	# has_many :tags, through: :picture_tags
+	# accepts_nested_attributes_for :tags
+
 	validates :email, uniqueness: true
 	# validates_with EmailValidator
 	# validates :email, 
@@ -17,4 +21,5 @@ class User < ApplicationRecord
 	def received_comments
 		self.owned_pictures.map {|picture| picture.comments}
 	end
+
 end

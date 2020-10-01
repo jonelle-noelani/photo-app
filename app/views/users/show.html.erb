@@ -33,5 +33,11 @@ That Trending Tag
     <div>
     <%= f.text_field :title %>
     <div>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+    <div>
+    <%= f.fields_for :tags, Tag.create do |tag| %>
+        <%= tag.label :name, "New Tag" %>
+        <%= tag.text_field :name %>
+    <% end %>
     <%= f.submit %>
 <% end %>

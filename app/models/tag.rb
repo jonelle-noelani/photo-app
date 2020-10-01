@@ -1,6 +1,9 @@
 class Tag < ApplicationRecord
     has_many :picture_tags
     has_many :pictures, through: :picture_tags
+
+    # has_many :owned_pictures, through: :picture_tags
+    # has_many :owners, through: :owned_pictures
     
     def self.most_popular
         # sorted_tags = Tag.all.map do |tag|
