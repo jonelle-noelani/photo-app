@@ -1,0 +1,37 @@
+<h1><%= "Welcome, #{@user.username}!" %></h1>
+
+<% @user.owned_pictures.reverse.each do |pic| %>
+    <%= link_to picture_path(pic) do %>
+    <img src=<%=pic.image_url%>
+    width="400" height="300">
+    <% end %>
+<% end %>
+
+<h3>Received Comments</h3>
+<ul>
+<% @user.received_comments.each do |comment| %>
+    <br><%= comment %></br>
+<% end %>
+</ul>
+
+<h3>Most Popular Tags</h3>
+<%= Tag.most_popular %>
+Get Tags to Show Up
+
+<h3>Trending Tag</h3>
+That Trending Tag
+
+<h3>Add A Photo</h3>
+<%= form_for@user.owned_pictures.build do |f| %>
+    <%= f.hidden_field :owner_id, :value => @user.id %>
+    
+    <%= f.label "Image URL" %>
+    <div>
+    <%= f.text_area :image_url %>
+    <div>
+    <%= f.label :title %>
+    <div>
+    <%= f.text_field :title %>
+    <div>
+    <%= f.submit %>
+<% end %>

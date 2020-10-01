@@ -1,0 +1,8 @@
+<h1><%= @tag.name %></h1>
+
+<% @tag.pictures.each do |pic| %>
+    <%= link_to picture_path(pic) do %>
+    <img src=<%=pic.image_url%>
+    width="400" height="300">
+    <% end %>
+<% end %>
