@@ -8,7 +8,8 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         
         if @user.valid?
-        redirect_to user_path(@user)
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
         else
             render :new
         end

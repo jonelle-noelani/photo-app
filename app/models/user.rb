@@ -3,6 +3,8 @@ class User < ApplicationRecord
 	has_many :comments
 	has_many :pictures, through: :comments
 
+	has_secure_password
+
 	# has_many :picture_tags, through: :owned_pictures
 	# has_many :tags, through: :picture_tags
 	# accepts_nested_attributes_for :tags

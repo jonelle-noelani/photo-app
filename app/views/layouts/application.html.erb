@@ -10,6 +10,16 @@
   </head>
 
   <body>
+
+  <%# <% @user = User.find(session[:user_id])
+  <%#<% if @user.valid? %>
+  <%#<%= Welcome, #{@user.username} %>
+  <%#<%= log_out_user! %>
+  <%#<% else %>
+  <%#<%= link_to signup_path %>
+  <%#<%= link_to login_path %>
+  <%#<% end %>
+
     <%= yield %>
   </body>
 </html>

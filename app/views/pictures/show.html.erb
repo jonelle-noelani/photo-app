@@ -8,3 +8,6 @@
 <% @picture.comments.each do |comment| %>
     <br><%= comment.content %></br>
 <% end %>
+
+<h3>Add A Comment</h3>
+<%= render 'comments/new', comment: Comment.new %>
