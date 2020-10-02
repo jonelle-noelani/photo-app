@@ -27,7 +27,6 @@ class LoginController < ApplicationController
         # session.delete(:user_id)  
         session.delete :user_id
         flash[:notice] = "You have logged out."
-        byebug
         redirect_to "/login"
     end
 

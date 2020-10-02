@@ -5,6 +5,8 @@ class Picture < ApplicationRecord
   has_many :comments
   has_many :users, through: :comments
   
+  validates :image_url, :title, presence: true
+
   accepts_nested_attributes_for :tags
 
   def tags_attributes=(tag_attributes)

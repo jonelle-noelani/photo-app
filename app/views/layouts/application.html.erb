@@ -27,6 +27,14 @@
   <%= link_to "Log In", login_path %>
   <%= link_to "Sign Up", signup_path %>
   <% end %>
+
+  <% if @logged_in %>
+  <%= link_to "Home", user_path(@user) %>
+  <% end %>
+
+  <%= link_to "Browse Pictures",  pictures_path %>
+  <%= link_to "Browse By Tags", tags_path %>
+
     <%= yield %>
   </body>
 </html>

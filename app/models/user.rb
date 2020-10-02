@@ -21,7 +21,13 @@ class User < ApplicationRecord
 	validates :email, :username, :password, presence: true
 
 	def received_comments
-		self.owned_pictures.map {|picture| picture.comments}
+		self.owned_pictures.map do |picture| 
+			# if picture.comments.any? 
+				picture.comments
+			# else
+			# 	puts ["You don't have any received comments yet"]
+			# end
+		end
 	end
 
 end

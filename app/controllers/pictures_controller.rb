@@ -12,6 +12,11 @@ class PicturesController < ApplicationController
     def create
         @picture = Picture.create(picture_params)
         redirect_to user_path(@picture.owner)
+        # if @picture.errors.any?
+        #     
+        # else
+        #     render 'users/show'
+        # end
     end
 
     private

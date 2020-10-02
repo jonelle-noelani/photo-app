@@ -9,8 +9,12 @@
 
 <h3>Received Comments</h3>
 <ul>
+<%# if @user.received_comments[0][0].valid? %>
 <% @user.received_comments.each do |comment| %>
     <br><%= comment[0].content %> written by <%= link_to comment[0].user.username, user_path(comment[0].user) %></br>
+<%# else %>
+    <%# "You haven't received any comments yet." %>
+    <%# end %>
 <% end %>
 </ul>
 <div>
@@ -41,5 +45,10 @@ That Trending Tag
     <% end %>
     <div>
     <%= f.submit %>
+    <div>
+    <% if @picture %>
+        <% @picture.errors.full_messages.each do |msg| %>
+            <br><%= msg %></br>
+        <% end %>
+    <% end %>
 <% end %>
-
