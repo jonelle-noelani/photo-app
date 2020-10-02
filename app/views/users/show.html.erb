@@ -10,10 +10,10 @@
 <h3>Received Comments</h3>
 <ul>
 <% @user.received_comments.each do |comment| %>
-    <br><%= comment %></br>
+    <br><%= comment[0].content %> written by <%= link_to comment[0].user.username, user_path(comment[0].user) %></br>
 <% end %>
 </ul>
-
+<div>
 <h3>Most Popular Tags</h3>
 <%= Tag.most_popular %>
 Get Tags to Show Up
@@ -35,10 +35,11 @@ That Trending Tag
     <div>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
     <div>
-    <%= f.fields_for :tags, Tag.create do |tag| %>
-        <%= tag.label :name, "New Tag" %>
+    <%= f.fields_for :tags, Tag.new do |tag| %>
+        <%= tag.label :name, "Create New Tag" %>
         <%= tag.text_field :name %>
     <% end %>
+    <div>
     <%= f.submit %>
 <% end %>
 

@@ -6,7 +6,7 @@
 <% end %>
 <div>
 <% @picture.comments.each do |comment| %>
-    <br><%= comment.content %></br>
+    <br><%= comment.content %> written by <%= link_to comment.user.username, user_path(comment.user) %></br>
 <% end %>
 
 <h3>Add A Comment</h3>

@@ -6,6 +6,7 @@ class PicturesController < ApplicationController
 
     def show
         @picture = Picture.find(params[:id])
+        session[:user_id] = @user.id
     end
 
     def create

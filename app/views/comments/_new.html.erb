@@ -1,7 +1,7 @@
-<h3>New Comment Form</h3>
 <%= form_for @picture.comments.build do |f| %>
     <%= f.hidden_field :picture_id, :value => @picture.id %>
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id, :value => @user.id %>
     <%= f.text_area :content %>
+    <div>
 <%= f.submit %>
 <% end %>

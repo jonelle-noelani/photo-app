@@ -8,7 +8,8 @@ class Picture < ApplicationRecord
   accepts_nested_attributes_for :tags
 
   def tags_attributes=(tag_attributes)
-		tag_attributes.values.each do |tag_attribute|
+    tag_attributes.values.each do |tag_attribute|
+      # if tag_attribute["name"] != nil
 			if tag_attribute["name"].present?
 				tag = Tag.find_or_create_by(tag_attribute)
 				self.tags << tag

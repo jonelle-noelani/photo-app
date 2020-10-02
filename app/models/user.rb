@@ -18,7 +18,7 @@ class User < ApplicationRecord
 	
 	validates :username, uniqueness: true
 	
-	validates :password, presence: true
+	validates :email, :username, :password, presence: true
 
 	def received_comments
 		self.owned_pictures.map {|picture| picture.comments}
